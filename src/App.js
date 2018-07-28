@@ -9,6 +9,11 @@ const apiKey = "AIzaSyCve38h3vuNZWubmID3lrSFTPbDOhgoS74";
 
 class App extends Component {
 
+  state = {
+    videos: [],
+    selectedVideo: null
+  }
+
   componentDidMount() {
     this.runSearch('yodeling');
   }
@@ -16,6 +21,7 @@ class App extends Component {
   runSearch(term) {
     YouTubeSearch({ key: apiKey, term: term }, videos => {
       console.log(videos);
+      this.setState({ videos: videos, selectedVideo: videos[0] });
     });
   }
 
@@ -29,7 +35,7 @@ class App extends Component {
           </Row>
           <Row>
             <Col md="8" sm="12">
-              <VideoDetail/>
+              <VideoDetail selectedVideo={this.state.selectedVideo} myName='Evan' />
             </Col>
             <Col md="4" sm="12">
               <VideoList/>
