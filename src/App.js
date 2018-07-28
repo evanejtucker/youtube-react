@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.runSearch('yodeling');
+    this.runSearch('extreme yodeling');
   }
   
   runSearch(term) {
