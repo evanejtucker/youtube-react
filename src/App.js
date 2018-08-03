@@ -4,7 +4,8 @@ import YouTubeSearch from 'youtube-api-search';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
-const apiKey = "AIzaSyCve38h3vuNZWubmID3lrSFTPbDOhgoS74";
+const keys = require("./keys.js");
+console.log(keys.apiKeys.youtubeKey);
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
   }
   
   runSearch(term) {
-    YouTubeSearch({ key: apiKey, term: term }, videos => {
+    YouTubeSearch({ key: keys.apiKeys.youtubeKey, term: term }, videos => {
       console.log(videos);
       this.setState({ videos: videos, selectedVideo: videos[0] });
     });
